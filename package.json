@@ -1,0 +1,28 @@
+{
+  "name": "api-integration-copilot",
+  "version": "1.0.0",
+  "description": "An AI-powered assistant for API integration, documentation, and type generation",
+  "main": "src/ApiCopilot.ts",
+  "dependencies": {
+    "typescript": "^4.9.5",
+    "@types/node": "^16.11.7",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.7"
+  },
+  "scripts": {
+    "start": "ts-node src/example.ts"
+  },
+  "keywords": [
+    "api",
+    "integration",
+    "typescript",
+    "documentation",
+    "ai",
+    "copilot",
+    "mistral"
+  ],
+  "author": "",
+  "license": "MIT"
+}
