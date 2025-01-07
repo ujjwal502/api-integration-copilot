@@ -5,7 +5,7 @@ import { DocumentationGenerator } from "./generators/DocumentationGenerator";
 
 export class ApiCopilot {
   private apiAnalyzer: ApiAnalyzer;
-  private typeGenerator: TypeGenerator;
+  public typeGenerator: TypeGenerator;
   private docGenerator: DocumentationGenerator;
 
   constructor() {
