@@ -1,18 +1,77 @@
 {
   "name": "api-integration-copilot",
+  "displayName": "API Integration Copilot",
   "version": "1.0.0",
-  "description": "An AI-powered assistant for API integration, documentation, and type generation",
-  "main": "src/ApiCopilot.ts",
-  "dependencies": {
-    "typescript": "^4.9.5",
-    "@types/node": "^16.11.7",
-    "ts-node": "^10.9.1"
+  "description": "An AI-powered VS Code extension for API integration, documentation, and type generation",
+  "engines": {
+    "vscode": "^1.80.0"
   },
-  "devDependencies": {
-    "@types/node": "^16.11.7"
+  "categories": [
+    "Programming Languages",
+    "Snippets",
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:api-copilot.analyzeResponse",
+    "onCommand:api-copilot.generateTypes",
+    "onCommand:api-copilot.generateWrapper"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "api-copilot.analyzeResponse",
+        "title": "API Copilot: Analyze API Response"
+      },
+      {
+        "command": "api-copilot.generateTypes",
+        "title": "API Copilot: Generate Types"
+      },
+      {
+        "command": "api-copilot.generateWrapper",
+        "title": "API Copilot: Generate API Wrapper"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorTextFocus",
+          "command": "api-copilot.analyzeResponse",
+          "group": "api-copilot"
+        },
+        {
+          "when": "editorTextFocus",
+          "command": "api-copilot.generateTypes",
+          "group": "api-copilot"
+        }
+      ]
+    }
   },
   "scripts": {
-    "start": "ts-node src/example.ts"
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "dependencies": {
+    "@types/node": "^16.11.7",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^16.11.7",
+    "@types/vscode": "^1.96.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
+    "@vscode/test-electron": "^2.3.0",
+    "eslint": "^8.39.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^5.0.4"
   },
   "keywords": [
     "api",
@@ -21,8 +80,14 @@
     "documentation",
     "ai",
     "copilot",
-    "mistral"
+    "mistral",
+    "vscode",
+    "vscode-extension"
   ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ujjwal502/api-integration-copilot"
+  }
 }
