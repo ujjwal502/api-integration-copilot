@@ -12,11 +12,20 @@ An AI-powered VS Code extension that helps developers with API integration tasks
 ## Installation
 
 1. Install the extension from VS Code Marketplace
-2. Set up your Mistral API key:
-   - Get your API key from [Mistral AI Platform](https://console.mistral.ai/)
-   - Open VS Code settings
-   - Search for "API Copilot"
-   - Add your Mistral API key in the settings
+2. Set up Mistral LLM through Ollama:
+
+   - Install Ollama from [ollama.ai](https://ollama.ai)
+   - Open terminal and run:
+
+     ```bash
+     # Pull the Mistral model
+     ollama pull mistral
+
+     ```
+
+   - The model will be downloaded and started locally
+   - Keep the Ollama process running while using the extension
+   - The extension will automatically connect to your local Mistral instance
 
 ## Usage
 
