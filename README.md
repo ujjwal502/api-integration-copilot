@@ -115,6 +115,9 @@ Response:
 - VS Code 1.80.0 or higher
 - Node.js and npm installed
 - Mistral AI API key
+- Local Mistral LLM setup:
+  - Download and install the Mistral LLM locally through Ollama on your machine
+  - The extension will automatically use your local Mistral LLM instance for AI operations
 
 ## Development
 
@@ -149,3 +152,7 @@ This project is licensed under the MIT License.
 ## Support
 
 If you encounter any issues or have questions, please file them in the [GitHub issues](https://github.com/ujjwal502/api-integration-copilot/issues) section.
+
+```
+
+```
