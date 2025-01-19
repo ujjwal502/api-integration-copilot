@@ -11,11 +11,6 @@
     "Snippets",
     "Other"
   ],
-  "activationEvents": [
-    "onCommand:api-copilot.analyzeResponse",
-    "onCommand:api-copilot.generateTypes",
-    "onCommand:api-copilot.generateWrapper"
-  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
@@ -28,8 +23,8 @@
         "title": "API Copilot: Generate Types"
       },
       {
-        "command": "api-copilot.generateWrapper",
-        "title": "API Copilot: Generate API Wrapper"
+        "command": "api-copilot.generateReactQuery",
+        "title": "API Copilot: Generate React Query Implementation"
       }
     ],
     "menus": {
@@ -42,6 +37,11 @@
         {
           "when": "editorTextFocus",
           "command": "api-copilot.generateTypes",
+          "group": "api-copilot"
+        },
+        {
+          "when": "editorTextFocus",
+          "command": "api-copilot.generateReactQuery",
           "group": "api-copilot"
         }
       ]

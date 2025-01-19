@@ -2,16 +2,19 @@ import { createCompletion } from "./llm/mistralClient";
 import { TypeGenerator } from "./generators/TypeGenerator";
 import { ApiAnalysis, ApiAnalyzer } from "./analyzers/ApiAnalyzer";
 import { DocumentationGenerator } from "./generators/DocumentationGenerator";
+import { ReactQueryGenerator } from "./generators/ReactQueryGenerator";
 
 export class ApiCopilot {
   private apiAnalyzer: ApiAnalyzer;
   public typeGenerator: TypeGenerator;
   private docGenerator: DocumentationGenerator;
+  private reactQueryGenerator: ReactQueryGenerator;
 
   constructor() {
     this.apiAnalyzer = new ApiAnalyzer();
     this.typeGenerator = new TypeGenerator();
     this.docGenerator = new DocumentationGenerator();
+    this.reactQueryGenerator = new ReactQueryGenerator();
   }
 
   async analyzeApiResponse(response: any): Promise<string> {
@@ -57,5 +60,9 @@ export class ApiCopilot {
 
 ${cleanedCode}
 `;
+  }
+
+  async generateReactQueryMutation(input: string): Promise<string> {
+    return await this.reactQueryGenerator.generateQuery(input);
   }
 }
